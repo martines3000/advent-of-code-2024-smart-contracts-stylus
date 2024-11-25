@@ -1,8 +1,14 @@
+#![cfg_attr(not(any(feature = "export-abi", test)), no_main)]
+
 // Allow `cargo stylus export-abi` to generate a main function.
 extern crate alloc;
 
-/// Import items from the SDK. The prelude contains common traits and macros.
-use stylus_sdk::{alloy_primitives::U256, prelude::*, storage::StorageU256};
+use alloc::string::String;
+
+use stylus_sdk::{console, prelude::*};
+
+// /// Import items from the SDK. The prelude contains common traits and macros.
+// use stylus_sdk::{alloy_primitives::U256, prelude::*, storage::StorageU256};
 
 /// The storage macro allows this struct to be used in persistent
 /// storage. It accepts fields that implement the StorageType trait. Built-in
@@ -13,36 +19,90 @@ use stylus_sdk::{alloy_primitives::U256, prelude::*, storage::StorageU256};
 /// are exposed by annotating an impl for this struct with #[external] as seen
 /// below.
 #[entrypoint]
-pub struct Counter {
-    number: StorageU256,
-}
+pub struct AOC2024 {}
 
-/// Declare that `Counter` is a contract with the following external methods.
 #[public]
-impl Counter {
-    /// Gets the number from storage.
-    pub fn number(&self) -> U256 {
-        self.number.get()
+impl AOC2024 {
+    pub fn solve01(&self, input: String) -> u32 {
+        console!("Hello World!");
+        let mut result = 0;
+
+        let mut first_digit = 0;
+        let mut last_digit = 0;
+
+        for line in input.lines() {
+            for c in line.chars() {
+                if c.is_ascii_digit() {
+                    if first_digit == 0 {
+                        first_digit = c.to_digit(10).unwrap();
+                    }
+
+                    last_digit = c.to_digit(10).unwrap();
+                }
+            }
+
+            result += first_digit * 10 + last_digit;
+            first_digit = 0;
+            last_digit = 0;
+        }
+
+        result
     }
 
-    /// Sets a number in storage to a user-specified value.
-    pub fn set_number(&mut self, new_number: U256) {
-        self.number.set(new_number);
-    }
+    pub fn solve02(&self, input: String) -> u32 {
+        console!("Hello World!");
 
-    /// Sets a number in storage to a user-specified value.
-    pub fn mul_number(&mut self, new_number: U256) {
-        self.number.set(new_number * self.number.get());
-    }
+        let words = [
+            "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+        ];
 
-    /// Sets a number in storage to a user-specified value.
-    pub fn add_number(&mut self, new_number: U256) {
-        self.number.set(new_number + self.number.get());
-    }
+        let mut result = 0;
 
-    /// Increments `number` and updates its value in storage.
-    pub fn increment(&mut self) {
-        let number = self.number.get();
-        self.set_number(number + U256::from(1));
+        let mut first_digit = 0;
+        let mut last_digit = 0;
+
+        let mut current_word = String::new();
+
+        for line in input.lines() {
+            for i in 0..line.len() {
+                for j in 0..5 {
+                    if (i + j) < line.len() {
+                        let c = line.chars().nth(i + j).unwrap();
+
+                        current_word.push(c);
+
+                        if current_word.len() >= 3 {
+                            let position = words.iter().position(|&word| word == current_word);
+
+                            if let Some(position) = position {
+                                if first_digit == 0 {
+                                    first_digit = position as u32 + 1;
+                                }
+
+                                last_digit = position as u32 + 1;
+                            }
+                        }
+                    }
+                }
+
+                current_word.clear();
+
+                let c = line.chars().nth(i).unwrap();
+
+                if c.is_ascii_digit() {
+                    if first_digit == 0 {
+                        first_digit = c.to_digit(10).unwrap();
+                    }
+
+                    last_digit = c.to_digit(10).unwrap();
+                }
+            }
+
+            result += first_digit * 10 + last_digit;
+            first_digit = 0;
+            last_digit = 0;
+        }
+
+        result
     }
 }

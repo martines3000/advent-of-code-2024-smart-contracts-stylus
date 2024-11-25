@@ -559,6 +559,8 @@ dependencies = [
 name = "aoc-2024"
 version = "0.1.2"
 dependencies = [
+ "alloy-primitives",
+ "alloy-sol-types",
  "e2e",
  "stylus-sdk",
 ]

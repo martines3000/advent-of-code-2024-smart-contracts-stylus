@@ -1,80 +1,40 @@
-// e2e module
-use e2e::{
-  Account,
-  ReceiptExt,
-  send,
-  alloy::{
-      primitives::{U256, utils::parse_ether},
-      providers::Provider,
-  },
-  eyre::Result,
-  tokio,
-};
+use std::fs;
 
-// Counter ABI
-use abi::Counter;
+// e2e module
+use e2e::{eyre::Result, tokio, Account, ReceiptExt};
+
+// AOC2024 ABI
+use abi::AOC2024;
 mod abi;
 
-// Test 1: Accounts are correctly funded
+// Test Day 1 Part 1 (2023)
 #[e2e::test]
-async fn accounts_are_funded(alice: Account) -> Result<()> {
-  let balance = alice.wallet.get_balance(alice.address()).await?;
-  let expected = parse_ether("100")?;
-  assert_eq!(expected, balance);
-  Ok(())
+async fn day_0_1(account: Account) -> Result<()> {
+    let contract_addr = account.as_deployer().deploy().await?.address()?;
+    let instance = AOC2024::new(contract_addr, &account.wallet);
+
+    // Read input
+    let input = fs::read_to_string("tests/inputs/0_1.txt").unwrap();
+
+    let AOC2024::solve01Return { result } = instance.solve01(input).call().await?;
+
+    assert!(result == 54561);
+
+    Ok(())
 }
 
-// Test 2: Contract deploys correctly
+// Test Day 1 Part 2 (2023)
 #[e2e::test]
-async fn deploys(alice: Account) -> Result<()> {
-  let contract_addr = alice
-      .as_deployer()
-      .deploy()
-      .await?
-      .address()?;
-  let contract = Counter::new(contract_addr, &alice.wallet);
-  let Counter::numberReturn { number } = contract.number().call().await?;
+async fn day_0_2(account: Account) -> Result<()> {
+    let contract_addr = account.as_deployer().deploy().await?.address()?;
+    let instance = AOC2024::new(contract_addr, &account.wallet);
 
-  assert_eq!(U256::ZERO, number);
-  Ok(())
-}
+    // Read input
+    let input = fs::read_to_string("tests/inputs/0_1.txt").unwrap();
 
-// Test 3: Performs all operations
-#[e2e::test]
-async fn performs_all_operations(alice: Account) -> Result<()> {
-  let contract_addr = alice
-      .as_deployer()
-      .deploy()
-      .await?
-      .address()?;
-  let contract = Counter::new(contract_addr, &alice.wallet);
+    let AOC2024::solve02Return { result } = instance.solve02(input).call().await?;
 
-  // Number should be 0 on initialization
-  let Counter::numberReturn { number } = contract.number().call().await?;
-  assert_eq!(U256::ZERO, number);
+    assert!(result == 54076);
 
-  // Incrementing
-  let _ = send!(contract.increment());
-  let Counter::numberReturn { number } = contract.number().call().await?;
-  assert_eq!(U256::from(1), number);
-
-  // Adding
-  let number_to_add = U256::from(5);
-  let _ = send!(contract.addNumber(number_to_add));
-  let Counter::numberReturn { number } = contract.number().call().await?;
-  assert_eq!(U256::from(6), number);
-
-  // Multiplying
-  let number_to_multiply = U256::from(2);
-  let _ = send!(contract.mulNumber(number_to_multiply));
-  let Counter::numberReturn { number } = contract.number().call().await?;
-  assert_eq!(U256::from(12), number);
-
-  // Setting new number
-  let number_to_set = U256::from(2);
-  let _ = send!(contract.setNumber(number_to_set));
-  let Counter::numberReturn { number } = contract.number().call().await?;
-  assert_eq!(number_to_set, number);
-
-  Ok(())
+    Ok(())
 }

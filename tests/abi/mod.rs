@@ -3,11 +3,10 @@ use e2e::alloy::sol;
 
 sol!(
     #[sol(rpc)]
-    contract Counter {
-        function number() external view returns (uint256 number);
-        function setNumber(uint256 new_number) external;
-        function mulNumber(uint256 new_number) external;
-        function addNumber(uint256 new_number) external;
-        function increment() external;
+    contract AOC2024 {
+        // function number() external view returns (uint256 number);
+        // function setNumber(uint256 new_number) external;
+        function solve01(string input) external returns (uint32 result);
+        function solve02(string input) external returns (uint32 result);
     }
 );
