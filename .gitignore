@@ -1,0 +1,10 @@
+**/node_modules
+**/target
+**/.next
+**/out
+**/.turbo
+**/.vercel
+**/.env
+**/.env.*
+nitro-testnode
+.DS_Store
