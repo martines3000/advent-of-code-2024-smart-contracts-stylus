@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 alloy-primitives = { version = "=0.7.6", default-features = false }
 alloy-sol-types ={ version = "=0.7.6", default-features = false }
-stylus-sdk = "0.6.0"
+stylus-sdk = { version = "0.6.0", features = ["debug"] }
 
 [dev-dependencies]
 e2e = { git = "https://github.com/TucksonDev/e2e-lib.git" }
