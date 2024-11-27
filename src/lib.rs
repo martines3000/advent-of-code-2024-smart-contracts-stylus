@@ -5,7 +5,7 @@ extern crate alloc;
 
 use alloc::string::String;
 
-use stylus_sdk::{console, prelude::*};
+use stylus_sdk::prelude::*;
 
 // /// Import items from the SDK. The prelude contains common traits and macros.
 // use stylus_sdk::{alloy_primitives::U256, prelude::*, storage::StorageU256};
@@ -15,7 +15,7 @@ use stylus_sdk::{console, prelude::*};
 /// storage types for Solidity ABI primitives are found under
 /// stylus_sdk::storage.
 #[storage]
-/// The entrypoint macro defines where Stylus execution begins. External methods
+/// The entrypoint macro defines where Stylus execution begins. External methodsf
 /// are exposed by annotating an impl for this struct with #[external] as seen
 /// below.
 #[entrypoint]
@@ -24,7 +24,6 @@ pub struct AOC2024 {}
 #[public]
 impl AOC2024 {
     pub fn solve01(&self, input: String) -> u32 {
-        console!("Hello World!");
         let mut result = 0;
 
         let mut first_digit = 0;
@@ -50,8 +49,6 @@ impl AOC2024 {
     }
 
     pub fn solve02(&self, input: String) -> u32 {
-        console!("Hello World!");
-
         let words = [
             "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
         ];

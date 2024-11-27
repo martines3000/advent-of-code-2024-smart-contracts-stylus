@@ -8,3 +8,4 @@
 **/.env.*
 nitro-testnode
 .DS_Store
+!.env.example

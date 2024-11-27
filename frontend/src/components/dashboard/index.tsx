@@ -4,14 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@radix-ui/react-label';
 import { useState } from 'react';
+import { solve } from '@/lib/contracts';
 
 export const Dashboard = () => {
   const [input, setInput] = useState('');
-  const [solution, setSolution] = useState('asdfa sdfas dfsadfasd');
-
-  const handleClick = () => {
-    console.log('clicked');
-  };
+  const [solution, setSolution] = useState('');
 
   return (
     <>
@@ -23,16 +20,22 @@ export const Dashboard = () => {
           id="input"
           placeholder="Input goes here."
           className="h-full w-full resize-none"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
       </div>
       <div className="flex flex-wrap gap-2 w-full">
         <Button
           variant="default"
-          onMouseDown={() => {
-            handleClick();
-          }}
+          onMouseDown={async () => await solve(input, '0', '1', setSolution)}
         >
-          Solve 1
+          Solve Day 0 Part 1
+        </Button>
+        <Button
+          variant="default"
+          onMouseDown={async () => await solve(input, '0', '2', setSolution)}
+        >
+          Solve Day 0 Part 2
         </Button>
       </div>
       <div className="flex flex-col flex-1 gap-1.5 p-1 overflow-hidden">
