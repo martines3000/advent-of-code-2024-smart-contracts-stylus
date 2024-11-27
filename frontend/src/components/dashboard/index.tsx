@@ -2,9 +2,9 @@
 
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
+import { solve } from '@/lib/contracts';
 import { Label } from '@radix-ui/react-label';
 import { useState } from 'react';
-import { solve } from '@/lib/contracts';
 
 export const Dashboard = () => {
   const [input, setInput] = useState('');

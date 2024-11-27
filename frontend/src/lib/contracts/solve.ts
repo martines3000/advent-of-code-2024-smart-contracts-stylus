@@ -1,8 +1,8 @@
-import { readContract } from '@wagmi/core';
-import { AOC2024 } from './abi';
-import { config } from '../wagmi/config';
-import type { Dispatch, SetStateAction } from 'react';
 import { appConfig } from '@/configs';
+import { readContract } from '@wagmi/core';
+import type { Dispatch, SetStateAction } from 'react';
+import { config } from '../wagmi/config';
+import { AOC2024 } from './abi';
 
 export const solve = async (
   input: string,

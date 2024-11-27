@@ -1,6 +1,6 @@
 import { appConfig } from '@/configs';
 import { arbitrumSepolia } from 'viem/chains';
-import { createConfig, http } from 'wagmi';
+import { http, createConfig } from 'wagmi';
 
 export const localDevNodeArbitrum = {
   id: 412346,

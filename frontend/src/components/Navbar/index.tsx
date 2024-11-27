@@ -1,5 +1,5 @@
-import { Nunito } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import { Nunito } from 'next/font/google';
 
 const nunito = Nunito({ subsets: ['latin'] });
 
