@@ -17,8 +17,27 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'AOC SC 2024',
-  description: 'Solutions to the Advent of Code 2024 using smart contracts',
+  title: 'Advent of Code 2024 - Smart Contracts',
+  description:
+    'Solutions to the Advent of Code 2024 challenges using smart contracts',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    description:
+      'Solutions to the Advent of Code 2024 challenges using smart contracts',
+    siteName: 'Advent of Code 2024 - Smart Contracts',
+    title: 'Advent of Code 2024 - Smart Contracts',
+    type: 'article',
+    url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Advent of Code 2024 - Smart Contracts',
+    description:
+      'Solutions to the Advent of Code 2024 challenges using smart contracts',
+  },
 };
 
 export default function RootLayout({
