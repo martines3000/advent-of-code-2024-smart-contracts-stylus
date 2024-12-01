@@ -24,7 +24,24 @@ export const Dashboard = () => {
           onChange={(e) => setInput(e.target.value)}
         />
       </div>
+      {/*
+        This part was used to test the contracts.
+        This solves day 1 part 1 and part 2 of AOC 2023.
+      */}
       <div className="flex flex-wrap gap-2 w-full">
+        <Button
+          variant="default"
+          onMouseDown={async () => await solve(input, '1', '1', setSolution)}
+        >
+          Solve Day 1 Part 1
+        </Button>
+        <Button
+          variant="default"
+          onMouseDown={async () => await solve(input, '1', '2', setSolution)}
+        >
+          Solve Day 1 Part 2
+        </Button>
+        {/*
         <Button
           variant="default"
           onMouseDown={async () => await solve(input, '0', '1', setSolution)}
@@ -37,6 +54,7 @@ export const Dashboard = () => {
         >
           Solve Day 0 Part 2
         </Button>
+        */}
       </div>
       <div className="flex flex-col flex-1 gap-1.5 p-1 overflow-hidden">
         <Label htmlFor="solution" className="font-semibold text-lg">

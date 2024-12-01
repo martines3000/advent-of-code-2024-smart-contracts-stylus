@@ -7,11 +7,11 @@ export const AOC2024 = [
         type: 'string',
       },
     ],
-    name: 'solve01',
+    name: 'solve11',
     outputs: [
       {
         internalType: 'uint32',
-        name: '',
+        name: 'result',
         type: 'uint32',
       },
     ],
@@ -26,11 +26,11 @@ export const AOC2024 = [
         type: 'string',
       },
     ],
-    name: 'solve02',
+    name: 'solve12',
     outputs: [
       {
         internalType: 'uint32',
-        name: '',
+        name: 'result',
         type: 'uint32',
       },
     ],

@@ -7,34 +7,68 @@ use e2e::{eyre::Result, tokio, Account, ReceiptExt};
 use abi::AOC2024;
 mod abi;
 
-// Test Day 1 Part 1 (2023)
+// Test Day 1 Part 1 (2024)
 #[e2e::test]
-async fn day_0_1(account: Account) -> Result<()> {
+async fn day_1_1(account: Account) -> Result<()> {
     let contract_addr = account.as_deployer().deploy().await?.address()?;
     let instance = AOC2024::new(contract_addr, &account.wallet);
 
     // Read input
-    let input = fs::read_to_string("tests/inputs/0_1.txt").unwrap();
+    let input = fs::read_to_string("tests/inputs/1.txt").unwrap();
 
-    let AOC2024::solve01Return { result } = instance.solve01(input).call().await?;
+    let AOC2024::solve11Return { result } = instance.solve11(input).call().await?;
 
-    assert!(result == 54561);
+    println!("Result day 1 part 1: {}", result);
 
+    assert!(result == 2904518);
     Ok(())
 }
+
+// Test Day 1 Part 2 (2024)
+#[e2e::test]
+async fn day_1_2(account: Account) -> Result<()> {
+    let contract_addr = account.as_deployer().deploy().await?.address()?;
+    let instance = AOC2024::new(contract_addr, &account.wallet);
+
+    // Read input
+    let input = fs::read_to_string("tests/inputs/1.txt").unwrap();
+
+    let AOC2024::solve12Return { result } = instance.solve12(input).call().await?;
+
+    println!("Result day 1 part 2: {}", result);
+
+    assert!(result == 18650129);
+    Ok(())
+}
+
+// Test Day 1 Part 1 (2023)
+// #[e2e::test]
+// async fn day_0_1(account: Account) -> Result<()> {
+//     let contract_addr = account.as_deployer().deploy().await?.address()?;
+//     let instance = AOC2024::new(contract_addr, &account.wallet);
+
+//     // Read input
+//     let input = fs::read_to_string("tests/inputs/0.txt").unwrap();
+
+//     let AOC2024::solve01Return { result } = instance.solve01(input).call().await?;
+
+//     assert!(result == 54561);
+
+//     Ok(())
+// }
 
 // Test Day 1 Part 2 (2023)
-#[e2e::test]
-async fn day_0_2(account: Account) -> Result<()> {
-    let contract_addr = account.as_deployer().deploy().await?.address()?;
-    let instance = AOC2024::new(contract_addr, &account.wallet);
+// #[e2e::test]
+// async fn day_0_2(account: Account) -> Result<()> {
+//     let contract_addr = account.as_deployer().deploy().await?.address()?;
+//     let instance = AOC2024::new(contract_addr, &account.wallet);
 
-    // Read input
-    let input = fs::read_to_string("tests/inputs/0_1.txt").unwrap();
+//     // Read input
+//     let input = fs::read_to_string("tests/inputs/0.txt").unwrap();
 
-    let AOC2024::solve02Return { result } = instance.solve02(input).call().await?;
+//     let AOC2024::solve02Return { result } = instance.solve02(input).call().await?;
 
-    assert!(result == 54076);
+//     assert!(result == 54076);
 
-    Ok(())
-}
+//     Ok(())
+// }
