@@ -3,6 +3,6 @@ import { defineConfig } from '../defineConfig';
 export function createDevnetConfig() {
   return defineConfig({
     env: 'devnet',
-    contractAddress: '0x75e0e92a79880bd81a69f72983d03c75e2b33dc8',
+    contractAddress: '0x2c3d95da9045d3825d3b9d17d57ba18157b08ffa',
   });
 }

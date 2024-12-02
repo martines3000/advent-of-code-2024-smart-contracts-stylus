@@ -41,6 +41,18 @@ export const Dashboard = () => {
         >
           Solve Day 1 Part 2
         </Button>
+        <Button
+          variant="default"
+          onMouseDown={async () => await solve(input, '2', '1', setSolution)}
+        >
+          Solve Day 2 Part 1
+        </Button>
+        <Button
+          variant="default"
+          onMouseDown={async () => await solve(input, '2', '2', setSolution)}
+        >
+          Solve Day 2 Part 2
+        </Button>
         {/*
         <Button
           variant="default"

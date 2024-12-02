@@ -3,6 +3,6 @@ import { defineConfig } from '../defineConfig';
 export function createTestnetConfig() {
   return defineConfig({
     env: 'testnet',
-    contractAddress: '0x782ebfb915b318d0bf2109d0809c63ca059b08a4',
+    contractAddress: '0x98b9d4881c9b5d743891cafee3def5230c3d0ee3',
   });
 }
