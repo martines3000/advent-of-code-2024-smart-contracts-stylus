@@ -6,7 +6,7 @@ const nunito = Nunito({ subsets: ['latin'] });
 export const Navbar = () => {
   return (
     <header className="w-full pt-8 px-6">
-      <nav className="w-full pb-4 text-center">
+      <nav className="w-full text-center">
         <div
           className={cn(
             'font-bold text-2xl pb-1 text-primary',

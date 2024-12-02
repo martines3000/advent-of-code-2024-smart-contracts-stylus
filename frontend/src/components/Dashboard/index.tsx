@@ -4,11 +4,23 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { solve } from '@/lib/contracts';
 import { Label } from '@radix-ui/react-label';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '../ui/select';
+
+const SOLVED_PROBLEMS = [1, 2];
 
 export const Dashboard = () => {
   const [input, setInput] = useState('');
   const [solution, setSolution] = useState('');
+  const [selectedProblem, setSelectedProblem] = useState<string | undefined>(
+    undefined
+  );
 
   return (
     <>
@@ -28,45 +40,33 @@ export const Dashboard = () => {
         This part was used to test the contracts.
         This solves day 1 part 1 and part 2 of AOC 2023.
       */}
-      <div className="flex flex-wrap gap-2 w-full">
+      <div className="sm:h-full flex flex-col justify-center gap-2">
         <Button
-          variant="default"
-          onMouseDown={async () => await solve(input, '1', '1', setSolution)}
+          disabled={!input || selectedProblem === undefined}
+          onClick={async () => {
+            const [day, part] = selectedProblem!.split('-');
+            await solve(input, day, part, setSolution);
+          }}
         >
-          Solve Day 1 Part 1
+          Solve
         </Button>
-        <Button
-          variant="default"
-          onMouseDown={async () => await solve(input, '1', '2', setSolution)}
-        >
-          Solve Day 1 Part 2
-        </Button>
-        <Button
-          variant="default"
-          onMouseDown={async () => await solve(input, '2', '1', setSolution)}
-        >
-          Solve Day 2 Part 1
-        </Button>
-        <Button
-          variant="default"
-          onMouseDown={async () => await solve(input, '2', '2', setSolution)}
-        >
-          Solve Day 2 Part 2
-        </Button>
-        {/*
-        <Button
-          variant="default"
-          onMouseDown={async () => await solve(input, '0', '1', setSolution)}
-        >
-          Solve Day 0 Part 1
-        </Button>
-        <Button
-          variant="default"
-          onMouseDown={async () => await solve(input, '0', '2', setSolution)}
-        >
-          Solve Day 0 Part 2
-        </Button>
-        */}
+        <Select value={selectedProblem} onValueChange={setSelectedProblem}>
+          <SelectTrigger className="sm:w-[180px]">
+            <SelectValue placeholder="Problem" />
+          </SelectTrigger>
+          <SelectContent>
+            {SOLVED_PROBLEMS.map((problem) => (
+              <React.Fragment key={problem}>
+                <SelectItem key={`${problem}-1`} value={`${problem}-1`}>
+                  Day {problem} Part 1
+                </SelectItem>
+                <SelectItem key={`${problem}-2`} value={`${problem}-2`}>
+                  Day {problem} Part 2
+                </SelectItem>
+              </React.Fragment>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
       <div className="flex flex-col flex-1 gap-1.5 p-1 overflow-hidden">
         <Label htmlFor="solution" className="font-semibold text-lg">
