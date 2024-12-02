@@ -11,6 +11,7 @@ export const solve = async (
   setSolution: Dispatch<SetStateAction<string>>
 ): Promise<void> => {
   try {
+    // @ts-ignore
     const result = await readContract(config, {
       abi: AOC2024,
       functionName: `solve${day}${part}` as any,
