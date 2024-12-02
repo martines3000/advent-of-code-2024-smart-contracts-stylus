@@ -20,14 +20,14 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: 'Advent of Code 2024 - Smart Contracts',
   description:
-    'Solutions to the Advent of Code 2024 challenges using smart contracts',
+    'Solutions to the Advent of Code 2024 challenges using smart contracts written in Rust.',
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
     description:
-      'Solutions to the Advent of Code 2024 challenges using smart contracts',
+      'Solutions to the Advent of Code 2024 challenges using smart contracts written in Rust.',
     siteName: 'Advent of Code 2024 - Smart Contracts',
     title: 'Advent of Code 2024 - Smart Contracts',
     type: 'article',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Advent of Code 2024 - Smart Contracts',
     description:
-      'Solutions to the Advent of Code 2024 challenges using smart contracts',
+      'Solutions to the Advent of Code 2024 challenges using smart contracts written in Rust.',
   },
 };
 
