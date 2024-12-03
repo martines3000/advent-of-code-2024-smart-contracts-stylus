@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '../ui/select';
 
-const SOLVED_PROBLEMS = [1, 2];
+const SOLVED_PROBLEMS = [1, 2, 3];
 
 export const Dashboard = () => {
   const [input, setInput] = useState('');
@@ -36,10 +36,6 @@ export const Dashboard = () => {
           onChange={(e) => setInput(e.target.value)}
         />
       </div>
-      {/*
-        This part was used to test the contracts.
-        This solves day 1 part 1 and part 2 of AOC 2023.
-      */}
       <div className="sm:h-full flex flex-col justify-center gap-2">
         <Button
           disabled={!input || selectedProblem === undefined}

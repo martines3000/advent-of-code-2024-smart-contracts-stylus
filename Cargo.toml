@@ -5,26 +5,32 @@ edition = "2021"
 
 [dependencies]
 alloy-primitives = { version = "=0.7.6", default-features = false }
-alloy-sol-types ={ version = "=0.7.6", default-features = false }
-# stylus-sdk = { version = "0.6.0", features = ["debug"] }
-stylus-sdk = { version = "0.6.0" }
+alloy-sol-types = { version = "=0.7.6", default-features = false }
+stylus-sdk = { version = "0.6.0", features = ["debug"] }
+# stylus-sdk = { version = "0.6.0" }
+hashbrown = "0.15.2"
+mini-alloc = "0.6.0"
 
 [dev-dependencies]
 e2e = { git = "https://github.com/TucksonDev/e2e-lib.git" }
 
 [features]
 export-abi = ["stylus-sdk/export-abi"]
-# debug = ["stylus-sdk/debug"]
+debug = ["stylus-sdk/debug"]
 
 [lib]
 crate-type = ["lib", "cdylib"]
 
 [profile.release]
 codegen-units = 1
-strip = true
-lto = true
 panic = "abort"
 opt-level = "s"
+strip = true             # remove debug info
+lto = true               # link time optimization
+debug = false            # no debug data
+rpath = false            # no run-time search path
+debug-assertions = false # prune debug assertions
+incremental = false      # no incremental builds
 
 [profile.dev]
 panic = "abort"
