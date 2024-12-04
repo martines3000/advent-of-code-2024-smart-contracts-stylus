@@ -109,6 +109,40 @@ async fn day_3_2(account: Account) -> Result<()> {
     Ok(())
 }
 
+// Test Day 4 Part 1 (2024)
+#[e2e::test]
+async fn day_4_1(account: Account) -> Result<()> {
+    let contract_addr = account.as_deployer().deploy().await?.address()?;
+    let instance = AOC2024::new(contract_addr, &account.wallet);
+
+    // Read input
+    let input = fs::read_to_string("tests/inputs/4.txt").unwrap();
+
+    let AOC2024::solve41Return { result } = instance.solve41(input).call().await?;
+
+    println!("Result day 4 part 1: {}", result);
+
+    assert!(result == 2532);
+    Ok(())
+}
+
+// Test Day 4 Part 2 (2024)
+#[e2e::test]
+async fn day_4_2(account: Account) -> Result<()> {
+    let contract_addr = account.as_deployer().deploy().await?.address()?;
+    let instance = AOC2024::new(contract_addr, &account.wallet);
+
+    // Read input
+    let input = fs::read_to_string("tests/inputs/4.txt").unwrap();
+
+    let AOC2024::solve42Return { result } = instance.solve42(input).call().await?;
+
+    println!("Result day 4 part 2: {}", result);
+
+    assert!(result == 1941);
+    Ok(())
+}
+
 // Test Day 1 Part 1 (2023)
 // #[e2e::test]
 // async fn day_0_1(account: Account) -> Result<()> {
