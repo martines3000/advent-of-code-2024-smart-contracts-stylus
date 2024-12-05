@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '../ui/select';
 
-const SOLVED_PROBLEMS = [1, 2, 3, 4];
+const SOLVED_PROBLEMS = [1, 2, 3, 4, 5];
 
 export const Dashboard = () => {
   const [input, setInput] = useState('');
