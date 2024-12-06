@@ -1,0 +1,21 @@
+[package]
+name = "orchestrator"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+version.workspace = true
+
+[dependencies]
+stylus-sdk.workspace = true
+
+[dev-dependencies]
+e2e.workspace = true
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+[features]
+e2e = []
+export-abi = ["stylus-sdk/export-abi"]
+debug = ["stylus-sdk/debug"]
