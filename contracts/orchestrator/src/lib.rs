@@ -2,6 +2,7 @@
 #![cfg_attr(not(any(feature = "export-abi", test)), no_main)]
 // #![no_std]
 extern crate alloc;
+use alloc::string::String;
 use stylus_sdk::{
     alloy_primitives::Address,
     call::Call,
@@ -28,36 +29,34 @@ sol_interface! {
 #[public]
 impl Orchestrator {
     // State variables are initialized in an `init` function.
-    pub fn init(&mut self) -> Result<(), Vec<u8>> {
+    pub fn init(&mut self) {
         // We check if contract has been initialized before.
         // We return if so, we initialize if not.
         let initialized = self.initialized.get();
         if initialized {
-            return Ok(());
+            panic!("Contract already initialized");
         }
         self.initialized.set(true);
 
         // We set the contract owner to the caller,
         // which we get from the global msg module
         self.owner.set(msg::sender());
-
-        Ok(())
     }
 
-    pub fn set_solution(&mut self, day: u32, solution: Address) -> Result<(), Vec<u8>> {
+    pub fn set_solution(&mut self, day: u32, address: String) {
         if msg::sender() != self.owner.get() {
-            return Err(b"Only owner can set solution".to_vec());
+            panic!("Only owner can set solution");
         }
-        self.day_to_solution.insert(day, solution);
 
-        Ok(())
+        self.day_to_solution
+            .insert(day, Address::parse_checksummed(address, None).unwrap());
     }
 
-    pub fn solve(&mut self, day: u32, part: u32, input: String) -> Result<u32, Vec<u8>> {
+    pub fn solve(&mut self, day: u32, part: u32, input: String) -> u32 {
         let solution = self.day_to_solution.get(day);
 
         if solution.is_zero() {
-            return Err(b"No solution for this day".to_vec());
+            panic!("No solution for this day");
         }
 
         let solution = Solution::new(solution);
@@ -67,9 +66,9 @@ impl Orchestrator {
         let result = match part {
             1 => solution.solvepart_1(config, input),
             2 => solution.solvepart_2(config, input),
-            _ => return Err(b"Invalid part".to_vec()),
+            _ => panic!("Invalid part"),
         };
 
-        Ok(result.unwrap())
+        result.unwrap()
     }
 }

@@ -16,7 +16,7 @@ while [[ $# -gt 0 ]]; do
             PRIVATE_KEY="$2"
             shift 2
             ;;
-        --contract-name)
+        --contract-address)
             CONTRACT="$2"
             shift 2
             ;;
@@ -27,12 +27,4 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Your deployment logic here
-echo "RPC: [$RPC]"
-echo "Private key: [$PRIVATE_KEY]"
-
-./scripts/check-wasm.sh
-
-cargo build --release --target wasm32-unknown-unknown
-
-cargo stylus deploy --endpoint "$RPC" --private-key "$PRIVATE_KEY" --wasm-file ./target/wasm32-unknown-unknown/release/"$CONTRACT".wasm
+cast send --rpc-url "$RPC" --private-key "$PRIVATE_KEY" "$CONTRACT" "function init()()"

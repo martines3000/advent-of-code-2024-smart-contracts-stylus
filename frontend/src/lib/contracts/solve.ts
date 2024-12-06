@@ -11,15 +11,14 @@ export const solve = async (
   setSolution: Dispatch<SetStateAction<string>>
 ): Promise<void> => {
   try {
-    // @ts-ignore
     const result = await readContract(config, {
       abi: AOC2024,
-      functionName: `solve${day}${part}` as any,
+      functionName: 'solve',
       address: appConfig.contractAddress as `0x${string}`,
-      args: [input],
+      args: [day, part, input],
     });
 
-    setSolution(result.toString());
+    setSolution(result);
   } catch (error) {
     console.log(error);
   }
