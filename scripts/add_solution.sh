@@ -38,4 +38,4 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-cast send --rpc-url "$RPC" --private-key "$PRIVATE_KEY" "$CONTRACT" "function setSolution(uint32 day, address solution) external" "$DAY"
+cast send --rpc-url "$RPC" --private-key "$PRIVATE_KEY" "$CONTRACT" "function setSolution(uint32 day, string calldata solution) external" "$DAY" "$SOLUTION"

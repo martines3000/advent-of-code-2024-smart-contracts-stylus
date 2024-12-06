@@ -28,8 +28,8 @@ pedantic = "warn"
 all = "warn"
 
 [workspace.dependencies]
-# stylus-sdk = "0.6.0"
-stylus-sdk = { version = "0.6.0", features = ["debug"] }
+stylus-sdk = "0.6.0"
+# stylus-sdk = { version = "0.6.0", features = ["debug"] }
 alloy-primitives = { version = "=0.7.6", default-features = false }
 alloy-sol-types = { version = "=0.7.6", default-features = false }
 hashbrown = "0.15.2"
