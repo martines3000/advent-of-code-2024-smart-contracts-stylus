@@ -6,7 +6,7 @@ use alloc::string::String;
 use stylus_sdk::{
     alloy_primitives::Address,
     call::Call,
-    msg,
+    console, evm, msg,
     prelude::*,
     storage::{StorageAddress, StorageBool, StorageMap},
 };
@@ -61,7 +61,7 @@ impl Orchestrator {
 
         let solution = Solution::new(solution);
 
-        let config = Call::new_in(self);
+        let config = Call::new().gas(evm::gas_left());
 
         let result = match part {
             1 => solution.solvepart_1(config, input),
