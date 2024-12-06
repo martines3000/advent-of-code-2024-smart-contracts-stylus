@@ -1,18 +1,75 @@
+// Only run this as a WASM if the export-abi feature is not set.
 #![cfg_attr(not(any(feature = "export-abi", test)), no_main)]
 // #![no_std]
 extern crate alloc;
-use stylus_sdk::prelude::*;
+use stylus_sdk::{
+    alloy_primitives::Address,
+    call::Call,
+    msg,
+    prelude::*,
+    storage::{StorageAddress, StorageBool, StorageMap},
+};
 
-/// The storage macro allows this struct to be used in persistent
-/// storage. It accepts fields that implement the StorageType trait. Built-in
-/// storage types for Solidity ABI primitives are found under
-/// stylus_sdk::storage.
 #[storage]
-/// The entrypoint macro defines where Stylus execution begins. External methodsf
-/// are exposed by annotating an impl for this struct with #[external] as seen
-/// below.
 #[entrypoint]
-pub struct Orchestrator {}
+pub struct Orchestrator {
+    initialized: StorageBool,
+    owner: StorageAddress,
+    day_to_solution: StorageMap<u32, StorageAddress>,
+}
+
+sol_interface! {
+  interface Solution {
+    function solvepart1(string calldata input) external view returns (uint32 result);
+    function solvepart2(string calldata input) external view returns (uint32 result);
+  }
+}
 
 #[public]
-impl Orchestrator {}
+impl Orchestrator {
+    // State variables are initialized in an `init` function.
+    pub fn init(&mut self) -> Result<(), Vec<u8>> {
+        // We check if contract has been initialized before.
+        // We return if so, we initialize if not.
+        let initialized = self.initialized.get();
+        if initialized {
+            return Ok(());
+        }
+        self.initialized.set(true);
+
+        // We set the contract owner to the caller,
+        // which we get from the global msg module
+        self.owner.set(msg::sender());
+
+        Ok(())
+    }
+
+    pub fn set_solution(&mut self, day: u32, solution: Address) -> Result<(), Vec<u8>> {
+        if msg::sender() != self.owner.get() {
+            return Err(b"Only owner can set solution".to_vec());
+        }
+        self.day_to_solution.insert(day, solution);
+
+        Ok(())
+    }
+
+    pub fn solve(&mut self, day: u32, part: u32, input: String) -> Result<u32, Vec<u8>> {
+        let solution = self.day_to_solution.get(day);
+
+        if solution.is_zero() {
+            return Err(b"No solution for this day".to_vec());
+        }
+
+        let solution = Solution::new(solution);
+
+        let config = Call::new_in(self);
+
+        let result = match part {
+            1 => solution.solvepart_1(config, input),
+            2 => solution.solvepart_2(config, input),
+            _ => return Err(b"Invalid part".to_vec()),
+        };
+
+        Ok(result.unwrap())
+    }
+}
