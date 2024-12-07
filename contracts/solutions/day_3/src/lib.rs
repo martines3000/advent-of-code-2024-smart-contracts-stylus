@@ -10,7 +10,7 @@ pub struct Day3 {}
 
 #[public]
 impl Solution for Day3 {
-    fn solvepart1(&self, input: String) -> u32 {
+    fn solvepart1(&self, input: String) -> i64 {
         let mut result = 0;
 
         let indices: Vec<_> = input.match_indices("mul(").collect();
@@ -71,10 +71,10 @@ impl Solution for Day3 {
             }
         }
 
-        result
+        result.try_into().unwrap()
     }
 
-    fn solvepart2(&self, input: String) -> u32 {
+    fn solvepart2(&self, input: String) -> i64 {
         let mut result = 0;
 
         let indices: Vec<_> = input.match_indices("mul(").collect();
@@ -160,6 +160,6 @@ impl Solution for Day3 {
             }
         }
 
-        result
+        result.try_into().unwrap()
     }
 }

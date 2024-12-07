@@ -17,10 +17,11 @@ For local development a [Arbitrum Nitro dev node](https://github.com/OffchainLab
 
 | Contract | Address | Comments |
 | -------- | ------- | -------- |
-| Orchestrator | 0x65d09ca88bb604c5cc5e5c33172b9f7b896fc2a2 ||
-| Day 1 | 0x05b473f7adb62c61f79866260d52726e572de4b4 ||
-| Day 2 | 0xb0e887a39fbc7e0e1a23f19889338dd71c4bff1f ||
-| Day 3 | 0x14ae0d1423e9522d1f59f9236d721f864c4dd392 ||
-| Day 4 | 0x34e73d0d188746ba0331a10328a62358235bb117 ||
-| Day 5 | 0x658292d39ca76900c8a42696c0b3f4ffe2894317 ||
-| Day 6 | 0x10b4f5a6028a6a26ce9da569f517e1950565f80f | Only part 1 works, as I was unable to optimize part 2 enough to not exceed the gas limit |
+| Orchestrator | 0x765fb73552ab1514b30d81e150ba82a056ae2d3e ||
+| Day 1 | 0xbaBC1eEADfc9F3860159503337aDa001adDe27F2 ||
+| Day 2 | 0x217BD447AAefb6544481a28A259501d3D9C50737  ||
+| Day 3 | 0x3a34b221000db023b42Ec8eFed213043D6BD7009 ||
+| Day 4 | 0x7699512B67D880BE29c98A941362dF2414Db61DB ||
+| Day 5 | 0x4D9aCD4600C018A0B56DF53920c9F4852B24515d ||
+| Day 6 | 0xDa6cc4d7F8219a22A4C5c0b3065b319C7280aE52 | Only part 1 works, as I was unable to optimize part 2 enough to not exceed the gas limit |
+| Day 7 | 0x8179e4dd10a0691DE3C12a8Fc19EEBEF0Dad5d9A | Only part 1 works, as I was unable to optimize part 2 enough to not exceed the gas limit |

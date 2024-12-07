@@ -10,7 +10,7 @@ pub struct Day2 {}
 
 #[public]
 impl Solution for Day2 {
-    fn solvepart1(&self, input: String) -> u32 {
+    fn solvepart1(&self, input: String) -> i64 {
         let mut result = 0;
 
         for line in input.lines() {
@@ -26,10 +26,10 @@ impl Solution for Day2 {
             }
         }
 
-        result
+        result.try_into().unwrap()
     }
 
-    fn solvepart2(&self, input: String) -> u32 {
+    fn solvepart2(&self, input: String) -> i64 {
         let mut result = 0;
 
         for line in input.lines() {
@@ -71,7 +71,7 @@ impl Solution for Day2 {
             }
         }
 
-        result
+        result.try_into().unwrap()
     }
 }
 

@@ -11,7 +11,7 @@ pub struct Day1 {}
 
 #[public]
 impl Solution for Day1 {
-    fn solvepart1(&self, input: String) -> u32 {
+    fn solvepart1(&self, input: String) -> i64 {
         let mut left = Vec::new();
         let mut right = Vec::new();
         let mut result = 0;
@@ -37,10 +37,10 @@ impl Solution for Day1 {
             };
         }
 
-        result
+        result.try_into().unwrap()
     }
 
-    fn solvepart2(&self, input: String) -> u32 {
+    fn solvepart2(&self, input: String) -> i64 {
         let mut left = Vec::new();
         let mut right: HashMap<u32, u32> = HashMap::new();
         let mut result = 0;
@@ -61,6 +61,6 @@ impl Solution for Day1 {
             result += val * right.get(&val).unwrap_or(&0);
         }
 
-        result
+        result.try_into().unwrap()
     }
 }

@@ -10,7 +10,7 @@ pub struct Day4 {}
 
 #[public]
 impl Solution for Day4 {
-    fn solvepart1(&self, input: String) -> u32 {
+    fn solvepart1(&self, input: String) -> i64 {
         let char_vec: Vec<Vec<char>> = input.lines().map(|line| line.chars().collect()).collect();
 
         let mut result = 0;
@@ -103,10 +103,10 @@ impl Solution for Day4 {
             }
         }
 
-        result
+        result.try_into().unwrap()
     }
 
-    fn solvepart2(&self, input: String) -> u32 {
+    fn solvepart2(&self, input: String) -> i64 {
         let char_vec: Vec<Vec<char>> = input.lines().map(|line| line.chars().collect()).collect();
 
         let mut result = 0;
@@ -133,6 +133,6 @@ impl Solution for Day4 {
             }
         }
 
-        result
+        result.try_into().unwrap()
     }
 }

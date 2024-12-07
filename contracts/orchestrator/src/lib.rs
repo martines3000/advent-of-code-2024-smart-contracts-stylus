@@ -6,7 +6,7 @@ use alloc::string::String;
 use stylus_sdk::{
     alloy_primitives::Address,
     call::Call,
-    console, evm, msg,
+    evm, msg,
     prelude::*,
     storage::{StorageAddress, StorageBool, StorageMap},
 };
@@ -21,8 +21,8 @@ pub struct Orchestrator {
 
 sol_interface! {
   interface Solution {
-    function solvepart1(string calldata input) external view returns (uint32 result);
-    function solvepart2(string calldata input) external view returns (uint32 result);
+    function solvepart1(string calldata input) external view returns (int64 result);
+    function solvepart2(string calldata input) external view returns (int64 result);
   }
 }
 
@@ -52,7 +52,7 @@ impl Orchestrator {
             .insert(day, Address::parse_checksummed(address, None).unwrap());
     }
 
-    pub fn solve(&mut self, day: u32, part: u32, input: String) -> u32 {
+    pub fn solve(&mut self, day: u32, part: u32, input: String) -> i64 {
         let solution = self.day_to_solution.get(day);
 
         if solution.is_zero() {

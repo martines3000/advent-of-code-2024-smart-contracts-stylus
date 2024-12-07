@@ -14,7 +14,7 @@ const DIRECTIONS: [(i32, i32); 4] = [(-1, 0), (0, 1), (1, 0), (0, -1)];
 
 #[public]
 impl Solution for Day6 {
-    fn solvepart1(&self, input: String) -> u32 {
+    fn solvepart1(&self, input: String) -> i64 {
         let mut guard_position = (0, 0);
         let (mut x, mut y) = (-1, -1);
 
@@ -87,10 +87,10 @@ impl Solution for Day6 {
             visited[next_position.0 as usize][next_position.1 as usize] = true;
         }
 
-        result
+        result.try_into().unwrap()
     }
 
-    fn solvepart2(&self, input: String) -> u32 {
+    fn solvepart2(&self, input: String) -> i64 {
         let mut guard_position = (0, 0);
         let (mut x, mut y) = (-1, -1);
 
@@ -166,7 +166,7 @@ impl Solution for Day6 {
             guard_position = next_position;
         }
 
-        result
+        result.try_into().unwrap()
     }
 }
 

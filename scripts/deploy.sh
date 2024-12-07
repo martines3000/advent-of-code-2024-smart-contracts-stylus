@@ -30,6 +30,7 @@ done
 # Your deployment logic here
 echo "RPC: [$RPC]"
 echo "Private key: [$PRIVATE_KEY]"
+# echo "Contract: [$CONTRACT]"
 
 ./scripts/check-wasm.sh
 

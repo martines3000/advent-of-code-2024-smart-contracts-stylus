@@ -45,9 +45,9 @@ export const AOC2024 = [
     name: 'solve',
     outputs: [
       {
-        internalType: 'uint32',
+        internalType: 'int64',
         name: '',
-        type: 'uint32',
+        type: 'int64',
       },
     ],
     stateMutability: 'nonpayable',

@@ -11,7 +11,7 @@ pub struct Day5 {}
 
 #[public]
 impl Solution for Day5 {
-    fn solvepart1(&self, input: String) -> u32 {
+    fn solvepart1(&self, input: String) -> i64 {
         // Split input on 2 new lines
         let input_vec: Vec<&str> = input.split("\n\n").collect();
 
@@ -52,10 +52,10 @@ impl Solution for Day5 {
             }
         }
 
-        result
+        result.try_into().unwrap()
     }
 
-    fn solvepart2(&self, input: String) -> u32 {
+    fn solvepart2(&self, input: String) -> i64 {
         // Split input on 2 new lines
         let input_vec: Vec<&str> = input.split("\n\n").collect();
 
@@ -138,6 +138,6 @@ impl Solution for Day5 {
             result += current_numbers[current_numbers.len() / 2]
         }
 
-        result
+        result.try_into().unwrap()
     }
 }

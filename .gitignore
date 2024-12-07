@@ -9,3 +9,4 @@
 nitro-testnode
 .DS_Store
 !.env.example
+deploy-all.sh
