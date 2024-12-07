@@ -13,7 +13,9 @@ import {
   SelectValue,
 } from '../ui/select';
 
-const SOLVED_PROBLEMS = [1, 2, 3, 4, 5];
+const SOLVED_PROBLEMS = [1, 2, 3, 4, 5, 6];
+const SKIP_PART_1 = [0];
+const SKIP_PART_2 = [6];
 
 export const Dashboard = () => {
   const [input, setInput] = useState('');
@@ -53,12 +55,16 @@ export const Dashboard = () => {
           <SelectContent>
             {SOLVED_PROBLEMS.map((problem) => (
               <React.Fragment key={problem}>
-                <SelectItem key={`${problem}-1`} value={`${problem}-1`}>
-                  Day {problem} Part 1
-                </SelectItem>
-                <SelectItem key={`${problem}-2`} value={`${problem}-2`}>
-                  Day {problem} Part 2
-                </SelectItem>
+                {SKIP_PART_1.includes(problem) ? null : (
+                  <SelectItem key={`${problem}-1`} value={`${problem}-1`}>
+                    Day {problem} Part 1
+                  </SelectItem>
+                )}
+                {SKIP_PART_2.includes(problem) ? null : (
+                  <SelectItem key={`${problem}-2`} value={`${problem}-2`}>
+                    Day {problem} Part 2
+                  </SelectItem>
+                )}
               </React.Fragment>
             ))}
           </SelectContent>

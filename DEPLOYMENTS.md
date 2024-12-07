@@ -1,8 +1,0 @@
-| Contract | Address |
-| -------- | ------- |
-| Orchestrator | 0x65d09ca88bb604c5cc5e5c33172b9f7b896fc2a2 |
-| Day 1 | 0x05b473f7adb62c61f79866260d52726e572de4b4 |
-| Day 2 | 0xb0e887a39fbc7e0e1a23f19889338dd71c4bff1f |
-| Day 3 | 0x14ae0d1423e9522d1f59f9236d721f864c4dd392 |
-| Day 4 | 0x34e73d0d188746ba0331a10328a62358235bb117 |
-| Day 5 | 0x658292d39ca76900c8a42696c0b3f4ffe2894317 |
