@@ -1324,6 +1324,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "day_8"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
 name = "der"
 version = "0.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
