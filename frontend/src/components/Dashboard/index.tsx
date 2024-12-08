@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '../ui/select';
 
-const SOLVED_PROBLEMS = [1, 2, 3, 4, 5, 6, 7];
+const SOLVED_PROBLEMS = [1, 2, 3, 4, 5, 6, 7, 8];
 const SKIP_PART_1 = [0];
 const SKIP_PART_2 = [6, 7];
 

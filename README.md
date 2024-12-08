@@ -25,3 +25,4 @@ For local development a [Arbitrum Nitro dev node](https://github.com/OffchainLab
 | Day 5 | 0x4D9aCD4600C018A0B56DF53920c9F4852B24515d ||
 | Day 6 | 0xDa6cc4d7F8219a22A4C5c0b3065b319C7280aE52 | Only part 1 works, as I was unable to optimize part 2 enough to not exceed the gas limit |
 | Day 7 | 0x8179e4dd10a0691DE3C12a8Fc19EEBEF0Dad5d9A | Only part 1 works, as I was unable to optimize part 2 enough to not exceed the gas limit |
+| Day 8 | 0x556e8a97f3d35cea2c25716a349d4160216f2391| |
