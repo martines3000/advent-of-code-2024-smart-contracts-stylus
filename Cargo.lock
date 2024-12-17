@@ -1264,6 +1264,76 @@ dependencies = [
 ]
 
 [[package]]
+name = "day_10"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_11"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_12"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_13"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_14"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_15"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_16"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
 name = "day_2"
 version = "0.1.0"
 dependencies = [
@@ -1325,6 +1395,16 @@ dependencies = [
 
 [[package]]
 name = "day_8"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_9"
 version = "0.1.0"
 dependencies = [
  "e2e",

@@ -13,9 +13,9 @@ import {
   SelectValue,
 } from '../ui/select';
 
-const SOLVED_PROBLEMS = [1, 2, 3, 4, 5, 6, 7, 8];
+const SOLVED_PROBLEMS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 const SKIP_PART_1 = [0];
-const SKIP_PART_2 = [6, 7];
+const SKIP_PART_2 = [6, 7, 9, 11, 15];
 
 export const Dashboard = () => {
   const [input, setInput] = useState('');
