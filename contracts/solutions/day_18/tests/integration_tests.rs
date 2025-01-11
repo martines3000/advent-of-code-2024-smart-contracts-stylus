@@ -7,9 +7,9 @@ use e2e::{eyre::Result, tokio, Account, ReceiptExt};
 use abi::Solution;
 mod abi;
 
-// Test Day 15 Part 1 (2024)
+// Test Day 18 Part 1 (2024)
 #[e2e::test]
-async fn day_15_1(account: Account) -> Result<()> {
+async fn day_18_1(account: Account) -> Result<()> {
     let contract_addr = account.as_deployer().deploy().await?.address()?;
     let instance = Solution::new(contract_addr, &account.wallet);
 
@@ -18,15 +18,15 @@ async fn day_15_1(account: Account) -> Result<()> {
 
     let Solution::solvepart1Return { result } = instance.solvepart1(input).call().await?;
 
-    println!("Result day 15 part 1: {}", result);
+    println!("Result day 18 part 1: {}", result);
 
-    assert!(result == 1495147);
+    assert!(result == 262);
     Ok(())
 }
 
-// Test Day 15 Part 2 (2024)
+// Test Day 18 Part 2 (2024)
 #[e2e::test]
-async fn day_15_2(account: Account) -> Result<()> {
+async fn day_18_2(account: Account) -> Result<()> {
     let contract_addr = account.as_deployer().deploy().await?.address()?;
     let instance = Solution::new(contract_addr, &account.wallet);
 
@@ -35,8 +35,8 @@ async fn day_15_2(account: Account) -> Result<()> {
 
     let Solution::solvepart2Return { result } = instance.solvepart2(input).call().await?;
 
-    println!("Result day 15 part 2: {}", result);
+    println!("Result day 18 part 2: {}", result);
 
-    assert!(result == 1524905);
+    assert!(result == "22,20");
     Ok(())
 }

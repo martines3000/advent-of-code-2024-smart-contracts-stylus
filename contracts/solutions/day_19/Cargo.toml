@@ -1,0 +1,22 @@
+[package]
+name = "day_19"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+version.workspace = true
+
+[dependencies]
+stylus-sdk.workspace = true
+hashbrown.workspace = true
+solution = { path = "../../solution" }
+
+[dev-dependencies]
+e2e.workspace = true
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+[features]
+export-abi = ["stylus-sdk/export-abi"]
+debug = ["stylus-sdk/debug"]

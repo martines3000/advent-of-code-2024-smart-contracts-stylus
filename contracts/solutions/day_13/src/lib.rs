@@ -101,25 +101,25 @@ impl Solution for Day13 {
 }
 
 // Out of gas, but solve_2 is better anyway.
-fn solve_1(a: (u64, u64), b: (u64, u64), p: (u64, u64)) -> Option<u64> {
-    let mut grid = vec![vec![((0, 0), 0); 100]; 100];
+// fn solve_1(a: (u64, u64), b: (u64, u64), p: (u64, u64)) -> Option<u64> {
+//     let mut grid = vec![vec![((0, 0), 0); 100]; 100];
 
-    let mut smallest: Option<u64> = None;
+//     let mut smallest: Option<u64> = None;
 
-    for y in 0..100_u64 {
-        for x in 0..100_u64 {
-            grid[y as usize][x as usize] = ((y * a.0 + x * b.0, y * a.1 + x * b.1), 3 * y + x);
+//     for y in 0..100_u64 {
+//         for x in 0..100_u64 {
+//             grid[y as usize][x as usize] = ((y * a.0 + x * b.0, y * a.1 + x * b.1), 3 * y + x);
 
-            if grid[y as usize][x as usize].0 == p
-                && (smallest.is_none() || grid[y as usize][x as usize].1 < smallest.unwrap())
-            {
-                smallest = Some(grid[y as usize][x as usize].1);
-            }
-        }
-    }
+//             if grid[y as usize][x as usize].0 == p
+//                 && (smallest.is_none() || grid[y as usize][x as usize].1 < smallest.unwrap())
+//             {
+//                 smallest = Some(grid[y as usize][x as usize].1);
+//             }
+//         }
+//     }
 
-    return smallest;
-}
+//     return smallest;
+// }
 
 // Linear algebra
 // Px = a_click * Ax + b_click * Bx

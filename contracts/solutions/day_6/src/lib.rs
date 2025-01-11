@@ -220,32 +220,32 @@ fn is_stuck(grid: &mut Vec<Vec<bool>>, guard_position: (i32, i32), direction: us
     }
 }
 
-fn print_grid(grid: &Vec<Vec<bool>>) {
-    let mut value = String::from("\n");
-    for row in grid {
-        for cell in row {
-            if *cell {
-                value.push('#');
-            } else {
-                value.push('.');
-            }
-        }
-        value.push('\n');
-    }
+// fn print_grid(grid: &Vec<Vec<bool>>) {
+//     let mut value = String::from("\n");
+//     for row in grid {
+//         for cell in row {
+//             if *cell {
+//                 value.push('#');
+//             } else {
+//                 value.push('.');
+//             }
+//         }
+//         value.push('\n');
+//     }
 
-    // console!("{}", value);
-}
+//     // console!("{}", value);
+// }
 
-fn print_visited(visited: &Vec<Vec<i32>>) {
-    let mut value = String::from("\n");
-    for row in visited {
-        for cell in row {
-            let cell_content = cell.to_string();
-            value.push_str(if *cell == 0 { "." } else { &cell_content });
-            value.push_str(" ");
-        }
-        value.push('\n');
-    }
+// fn print_visited(visited: &Vec<Vec<i32>>) {
+//     let mut value = String::from("\n");
+//     for row in visited {
+//         for cell in row {
+//             let cell_content = cell.to_string();
+//             value.push_str(if *cell == 0 { "." } else { &cell_content });
+//             value.push_str(" ");
+//         }
+//         value.push('\n');
+//     }
 
-    // console!("{}", value);
-}
+//     // console!("{}", value);
+// }
