@@ -1385,6 +1385,57 @@ dependencies = [
 ]
 
 [[package]]
+name = "day_21"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_22"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "ndarray",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_23"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_24"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
+name = "day_25"
+version = "0.1.0"
+dependencies = [
+ "e2e",
+ "hashbrown 0.15.2",
+ "solution",
+ "stylus-sdk",
+]
+
+[[package]]
 name = "day_3"
 version = "0.1.0"
 dependencies = [

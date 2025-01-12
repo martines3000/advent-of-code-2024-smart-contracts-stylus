@@ -38,8 +38,8 @@ For local development a [Arbitrum Nitro dev node](https://github.com/OffchainLab
 | Day 18 | 0x6C563B2d8084fE61784240021673Ba846b33b6b8 | Part 2 throws out of gas. |
 | Day 19 | 0x33Dc3605F18378b8b7524fB055482286fCCbe63a | |
 | Day 20 | 0xd8bDFcD34772dBEc1558EC37a2aBD7AD71005FE5 | Solved using ndarray. Part 2  throws out of gas. |
-| Day 21 |  | |
-| Day 22 |  | |
-| Day 23 |  | |
+| Day 21 | 0x23656E189698FaF80C9a1AcE31B64419dEA63670 | |
+| Day 22 | 0x2efC6C81Ad0c1f14E8c1ED028d0a380F57E8415f | Both parts throw out of gas. |
+| Day 23 | 0x9b9CaD10E25343793788dadf5102c13F1Ca76660 | Part 2 throws out of gas. |
 | Day 24 |  | |
 | Day 25 |  | |
