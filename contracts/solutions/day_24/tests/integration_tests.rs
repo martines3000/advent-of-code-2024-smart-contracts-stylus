@@ -20,7 +20,7 @@ async fn day_24_1(account: Account) -> Result<()> {
 
     println!("Result Day 24 part 1: {}", result);
 
-    assert!(result == 1406);
+    assert!(result == 59336987801432);
     Ok(())
 }
 
@@ -37,6 +37,6 @@ async fn day_24_2(account: Account) -> Result<()> {
 
     println!("Result Day 24 part 2: {}", result);
 
-    assert!(result == 1006101);
+    assert!(result == "ctg,dmh,dvq,rpb,rpv,z11,z31,z38");
     Ok(())
 }
